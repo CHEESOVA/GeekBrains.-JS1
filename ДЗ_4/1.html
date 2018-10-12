@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script>
+		function convert_number (num){
+if(num>999){console.log("out of range error!");var converted_number = {};}
+
+var temp_value;
+var hundreds;
+var tens;
+var numbers;
+
+hundreds = parseInt(num / 100);
+temp_value = num - hundreds * 100;
+
+tens = parseInt(temp_value / 10);
+numbers = temp_value - tens * 10;
+
+
+
+
+var converted_number = {
+hundreds:hundreds,
+tens:tens,
+numbers:numbers
+}
+} 
+	</script>
+
+</body>
+</html>

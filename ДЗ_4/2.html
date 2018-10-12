@@ -1,0 +1,79 @@
+// 2.1) Можно заменить на объект cart c полями артикул, название товара, количество и цена 
+
+// 2.2, 2.3
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script>
+		<p style="line-height: 18px; font-size: 18px;  font-family: times;">
+Click "<i>Load samples</i>" to view and edit more JS samples.<br>
+<br>
+Labyrinth generated with JavaScript:<br><br>
+<script>
+var cartarray = [
+        ["Артикул", "Наименование товара", "Количество", "Цена"],
+        ["Артикул_1", "Зелёный чай", "1", "85"],
+        ["Артикул_2", "Чёрный чай", "1", "100"],
+        ["Артикул_3", "Красный чай", "5", "300"],
+        ["Артикул_4", "Чай с ромашкой", "2", "55"],
+        ["Артикул_5", "Молочный улун", "1", "40"],
+        ["Артикул_6", "Имбирный чай", "3", "150"]
+    ];
+var cartArrayOfObjects = [];
+    document.write("<table border='1'>");
+    for (var i = 0; i < cartarray.length; i++)
+    {
+        document.write("<tr>");
+        
+        for (var j = 0; j < cartarray[1].length; j++)
+        {
+            document.write("<td>" + cartarray[i][j] + "</td>");
+        }
+        document.write("</tr>");
+    }
+    for (var i = 1; i < cartarray.length; i++){
+    	var temp_object = {
+        	Артикул:'',
+            НаименованиеТовара:'',
+            Количество:0,
+            Цена:0
+        };
+        
+        for (var j = 0; j < cartarray[1].length; j++)
+        {
+        	switch(j){
+            	case 0:
+                	temp_object.Артикул = cartarray[i][j];
+                case 1:
+                	temp_object.НаименованиеТовара = cartarray[i][j];
+                case 2:
+                	temp_object.Количество = parseInt(cartarray[i][j]);
+                case 3:
+                	temp_object.Цена = parseInt(cartarray[i][j]);
+            }
+        }
+        cartArrayOfObjects.push(temp_object); 
+    }
+    
+    document.write("</table>");
+    function countBasketPrice() {
+        var totalPrice = 0;
+        
+        cartArrayOfObjects.forEach(function(e) {
+			totalPrice = totalPrice + e.Количество * e.Цена;
+		});
+        
+        return totalPrice;
+    }
+    document.write("<br />Суммарная стоимость товаров в корзине: " + countBasketPrice());
+</script>
+</p>
+
+	</script>
+
+</body>
+</html>
